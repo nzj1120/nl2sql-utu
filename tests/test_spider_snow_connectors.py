@@ -11,7 +11,7 @@ from src.infra.vector_store import SpiderSnowSchemaStore
 from src.infra.db import SpiderSnowDBIntrospectionService
 
 
-SPIDER_BASE = Path(__file__).resolve().parents[2] / "Spider2" / "spider2-snow" / "resource" / "databases"
+SPIDER_BASE = Path(__file__).resolve().parents[1] / "data" / "spider2-snow" / "resource" / "databases"
 
 
 @pytest.mark.skipif(not SPIDER_BASE.is_dir(), reason="Spider2-snow data not available")
