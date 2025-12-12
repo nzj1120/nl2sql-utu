@@ -27,11 +27,14 @@ def build_orchestrator() -> Orchestrator:
 
     spider_base = os.getenv(
         "SPIDER_SNOW_BASE",
-        str(Path(__file__).resolve().parents[2] / "Spider2" / "spider2-snow" / "resource" / "databases"),
+        str(Path(__file__).resolve().parents[1] / "data" / "spider2-snow" / "resource" / "databases"),
     )
 
     spider_mode = os.getenv("SPIDER_SNOW_MODE", "").lower()
-    snowflake_cred = os.getenv("SNOWFLAKE_CRED_PATH", str(Path(__file__).resolve().parents[2] / "Spider2" / "methods" / "spider-agent-snow" / "snowflake_credential.json"))
+    snowflake_cred = os.getenv(
+        "SNOWFLAKE_CRED_PATH",
+        str(Path(__file__).resolve().parents[1] / "data" / "spider2-snow" / "snowflake_credential.json"),
+    )
 
     if os.path.isdir(spider_base):
         vector_store = SpiderSnowSchemaStore(spider_base)

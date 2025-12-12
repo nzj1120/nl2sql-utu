@@ -25,7 +25,7 @@ This project follows a four-layer stack tailored for NL2SQL:
 - **Storage/Telemetry**: saves `QueryContext`, metrics, logs.
 
 Spider2-snow integration:
-- `SpiderSnowSchemaStore` reads DB_schema JSON/DDL directly from `Spider2/spider2-snow/resource/databases`.
+- `SpiderSnowSchemaStore` reads DB_schema JSON/DDL directly from `data/spider2-snow/resource/databases` by default (override with `SPIDER_SNOW_BASE`).
 - `SpiderSnowDBIntrospectionService` returns sample rows from those JSON files for probe/verify steps.
 - `SnowflakeProbeService` can run online read-only SELECT probes against Snowflake using the `snowflake_credential.json` format from spider-agent-snow (enable via env `SPIDER_SNOW_MODE=online` and `SNOWFLAKE_CRED_PATH`).
 - Set `SPIDER_SNOW_BASE` env var to override the default path lookup.

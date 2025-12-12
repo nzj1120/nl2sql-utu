@@ -18,7 +18,7 @@ python -m src.main --query "上个月美国客户的订单金额总和是多少�
 3) Wire your own services:
 - Set vector store / DB connection in `configs/config.example.yaml`.
 - Add LLM keys via env vars (see `docs/architecture.md`).
-- To test Spider2-snow data locally, ensure `Spider2/spider2-snow/resource/databases` exists or set `SPIDER_SNOW_BASE` to that folder; the schema store and probe services will read JSON/DDL directly.
+- 已内置 `data/spider2-snow/resource` 与 `spider2-snow.jsonl`，默认会读取该路径。若放置到其他位置，设置 `SPIDER_SNOW_BASE=/your/path/to/resource/databases`。
 - To probe online Snowflake data (参考 spider-agent-snow): set `SPIDER_SNOW_MODE=online` and `SNOWFLAKE_CRED_PATH` pointing to a `snowflake_credential.json` (same format as spider-agent-snow). Only SELECT probes are allowed and row limits are enforced.
 
 ## Layout
