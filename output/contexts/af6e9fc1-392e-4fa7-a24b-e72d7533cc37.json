@@ -1,0 +1,159 @@
+{
+  "query_id": "af6e9fc1-392e-4fa7-a24b-e72d7533cc37",
+  "user": {
+    "id": "tester",
+    "roles": [],
+    "permissions": [
+      "readonly"
+    ]
+  },
+  "session": {
+    "id": "sess-test",
+    "history_summary": {}
+  },
+  "user_query": "上个月美国客户的订单金额总和是多少？",
+  "router": {
+    "candidate_dbs": [
+      "sales"
+    ],
+    "chosen_db": "sales",
+    "high_level_plan": {
+      "task_type": "aggregation",
+      "hint_tables": [
+        "orders",
+        "customers"
+      ]
+    }
+  },
+  "schema_state": {
+    "table_list": [
+      "customers",
+      "orders"
+    ],
+    "linked_schema": {
+      "orders": {
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "INT",
+            "role": "pk",
+            "description": "",
+            "sample_values": []
+          },
+          {
+            "name": "customer_id",
+            "type": "INT",
+            "role": "fk",
+            "description": "",
+            "sample_values": []
+          },
+          {
+            "name": "order_date",
+            "type": "DATE",
+            "role": "col",
+            "description": "",
+            "sample_values": []
+          },
+          {
+            "name": "total_amount",
+            "type": "NUMERIC",
+            "role": "col",
+            "description": "",
+            "sample_values": []
+          }
+        ]
+      },
+      "customers": {
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INT",
+            "role": "pk",
+            "description": "",
+            "sample_values": []
+          },
+          {
+            "name": "country",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": []
+          }
+        ]
+      }
+    },
+    "linking_trace": [
+      {
+        "step": 0,
+        "llm_actions": [
+          {
+            "type": "stop_action"
+          }
+        ],
+        "observations": [
+          {
+            "action": "stop_action"
+          },
+          {
+            "warning": "no_feedback_action",
+            "detail": "Add retrieve_schema/explore_schema/verify_schema"
+          }
+        ],
+        "forced_stop": false
+      }
+    ]
+  },
+  "retrieval_state": {},
+  "sql_generation_state": {
+    "candidates": [
+      "SELECT 1;"
+    ]
+  },
+  "execution_state": {
+    "probes": [
+      {
+        "sql": "SELECT 1;",
+        "status": "ok",
+        "error_type": null,
+        "error_message": null,
+        "row_count": 2,
+        "sample_rows": [
+          {
+            "order_id": 1,
+            "total_amount": 100.0
+          },
+          {
+            "order_id": 2,
+            "total_amount": 200.0
+          }
+        ]
+      }
+    ],
+    "sample_rows": [
+      {
+        "order_id": 1,
+        "total_amount": 100.0
+      },
+      {
+        "order_id": 2,
+        "total_amount": 200.0
+      }
+    ]
+  },
+  "final_decision": {
+    "sql": "SELECT 1;",
+    "status": "ok",
+    "result_summary": {
+      "message": "stubbed select",
+      "row_count": 2
+    }
+  },
+  "metrics": {
+    "token_usage": {},
+    "latency_ms": {},
+    "timestamps": {
+      "start": 1765518858.6829662,
+      "end": 1765518858.6831472
+    }
+  }
+}

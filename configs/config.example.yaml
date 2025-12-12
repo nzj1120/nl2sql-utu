@@ -1,0 +1,37 @@
+# Example runtime configuration for NL2SQL YouTu Agent
+
+llm:
+  provider: "stub"          # replace with "openai", "dashscope", etc.
+  model: "gpt-4o-mini"      # model name used by your gateway
+  temperature: 0.3
+  top_p: 0.9
+
+databases:
+  - db_id: "sales"
+    name: "Sales DW"
+    short_desc: "订单、客户、产品与地区信息"
+    example_tables: ["orders", "customers", "products"]
+  - db_id: "finance"
+    name: "Finance Mart"
+    short_desc: "财务总账和科目余额"
+    example_tables: ["gl_entries", "accounts"]
+
+schema_vector_store:
+  type: "stub"
+  # For real deployments, provide connection info for milvus/pgvector/bge index
+  # host: "127.0.0.1"
+  # port: 19530
+
+db_introspection:
+  type: "stub"
+  # Provide DSN or credentials for read-only probe endpoints.
+  # dsn: "postgresql://readonly:pass@host:5432/db"
+
+schema_agent:
+  initial_top_m: 50
+  retrieve_top_k: 5
+  max_steps: 8
+  prompt_token_budget: 4000
+  min_feedback_actions_per_step: 1
+  enable_verify_schema: true
+  enable_explore_schema: true
