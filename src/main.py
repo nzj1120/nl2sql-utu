@@ -3,6 +3,8 @@ Minimal CLI entry to run the NL2SQL pipeline with stubbed services.
 """
 
 import argparse
+import os
+from pathlib import Path
 
 from src.api.models import QueryRequest, QueryOptions
 from src.api.handler import RequestHandler
@@ -12,8 +14,8 @@ from src.agents.schema import SchemaAgent, SchemaAgentConfig
 from src.agents.sql_generator import SQLGeneratorAgent
 from src.agents.verifier import VerifierAgent
 from src.infra.llm import EchoLLMClient
-from src.infra.vector_store import StubSchemaVectorStore
-from src.infra.db import StubDBIntrospectionService
+from src.infra.vector_store import StubSchemaVectorStore, SpiderSnowSchemaStore
+from src.infra.db import StubDBIntrospectionService, SpiderSnowDBIntrospectionService, SnowflakeProbeService
 from src.infra.storage import ContextStore
 
 
@@ -22,17 +24,34 @@ def build_orchestrator() -> Orchestrator:
     Wire stub services and agents into an orchestrator.
     """
     llm = EchoLLMClient()
-    vector_store = StubSchemaVectorStore()
-    db_service = StubDBIntrospectionService()
+
+    spider_base = os.getenv(
+        "SPIDER_SNOW_BASE",
+        str(Path(__file__).resolve().parents[2] / "Spider2" / "spider2-snow" / "resource" / "databases"),
+    )
+
+    spider_mode = os.getenv("SPIDER_SNOW_MODE", "").lower()
+    snowflake_cred = os.getenv("SNOWFLAKE_CRED_PATH", str(Path(__file__).resolve().parents[2] / "Spider2" / "methods" / "spider-agent-snow" / "snowflake_credential.json"))
+
+    if os.path.isdir(spider_base):
+        vector_store = SpiderSnowSchemaStore(spider_base)
+        if spider_mode == "online" and os.path.exists(snowflake_cred):
+            db_service = SnowflakeProbeService(credential_path=snowflake_cred)
+        else:
+            db_service = SpiderSnowDBIntrospectionService(spider_base)
+        db_catalog = vector_store.db_catalog()
+    else:
+        vector_store = StubSchemaVectorStore()
+        db_service = StubDBIntrospectionService()
+        db_catalog = [
+            {"db_id": "sales", "name": "Sales DW", "short_desc": "stub database", "example_tables": ["orders", "customers"]},
+        ]
+
     router = RouterAgent(llm=llm)
     schema_agent = SchemaAgent(llm=llm, vector_store=vector_store, db_service=db_service, config=SchemaAgentConfig())
     sql_generator = SQLGeneratorAgent(llm=llm)
     verifier = VerifierAgent(db_service=db_service)
     context_store = ContextStore()
-
-    db_catalog = [
-        {"db_id": "sales", "name": "Sales DW", "short_desc": "订单与客户数据", "example_tables": ["orders", "customers"]},
-    ]
 
     return Orchestrator(
         router=router,

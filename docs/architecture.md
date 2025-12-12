@@ -21,8 +21,14 @@ This project follows a four-layer stack tailored for NL2SQL:
 4) **Infra / Tools (基础设施层)**  
    - **SchemaVectorStoreService**: column-level embeddings and search.  
    - **DBIntrospectionService**: read-only probe with whitelist templates and row/time guards.  
-   - **LLM Gateway**: routes to DeepSeek/Qwen/GPT/etc.  
-   - **Storage/Telemetry**: saves `QueryContext`, metrics, logs.
+- **LLM Gateway**: routes to DeepSeek/Qwen/GPT/etc.  
+- **Storage/Telemetry**: saves `QueryContext`, metrics, logs.
+
+Spider2-snow integration:
+- `SpiderSnowSchemaStore` reads DB_schema JSON/DDL directly from `Spider2/spider2-snow/resource/databases`.
+- `SpiderSnowDBIntrospectionService` returns sample rows from those JSON files for probe/verify steps.
+- `SnowflakeProbeService` can run online read-only SELECT probes against Snowflake using the `snowflake_credential.json` format from spider-agent-snow (enable via env `SPIDER_SNOW_MODE=online` and `SNOWFLAKE_CRED_PATH`).
+- Set `SPIDER_SNOW_BASE` env var to override the default path lookup.
 
 ## Data Contracts
 - **QueryRequest**: user/session/query/options.  

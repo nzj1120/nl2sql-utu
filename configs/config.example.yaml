@@ -23,9 +23,10 @@ schema_vector_store:
   # port: 19530
 
 db_introspection:
-  type: "stub"
-  # Provide DSN or credentials for read-only probe endpoints.
-  # dsn: "postgresql://readonly:pass@host:5432/db"
+  type: "spider_snow"   # options: stub | spider_snow | snowflake_online
+  # For online Snowflake probing set:
+  # snowflake_cred_path: "../../Spider2/methods/spider-agent-snow/snowflake_credential.json"
+  # spider_snow_mode: "online"
 
 schema_agent:
   initial_top_m: 50

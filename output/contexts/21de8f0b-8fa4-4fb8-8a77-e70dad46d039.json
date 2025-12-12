@@ -1,0 +1,1053 @@
+{
+  "query_id": "21de8f0b-8fa4-4fb8-8a77-e70dad46d039",
+  "user": {
+    "id": "tester",
+    "roles": [],
+    "permissions": [
+      "readonly"
+    ]
+  },
+  "session": {
+    "id": "sess-test",
+    "history_summary": {}
+  },
+  "user_query": "上个月美国客户的订单金额总和是多少？",
+  "router": {
+    "candidate_dbs": [
+      "ADVENTUREWORKS",
+      "AIRLINES",
+      "AMAZON_VENDOR_ANALYTICS__SAMPLE_DATASET",
+      "AUSTIN",
+      "BANK_SALES_TRADING",
+      "BASEBALL",
+      "BBC",
+      "BLS",
+      "BOWLINGLEAGUE",
+      "BRAZE_USER_EVENT_DEMO_DATASET",
+      "BRAZILIAN_E_COMMERCE",
+      "CALIFORNIA_TRAFFIC_COLLISION",
+      "CENSUS_BUREAU_ACS_1",
+      "CENSUS_BUREAU_ACS_2",
+      "CENSUS_BUREAU_INTERNATIONAL",
+      "CENSUS_BUREAU_USA",
+      "CENSUS_GALAXY__AIML_MODEL_DATA_ENRICHMENT_SAMPLE",
+      "CENSUS_GALAXY__ZIP_CODE_TO_BLOCK_GROUP_SAMPLE",
+      "CHICAGO",
+      "CHINOOK",
+      "CITY_LEGISLATION",
+      "CMS_DATA",
+      "COMPLEX_ORACLE",
+      "COVID19_JHU_WORLD_BANK",
+      "COVID19_NYT",
+      "COVID19_OPEN_DATA",
+      "COVID19_OPEN_WORLD_BANK",
+      "COVID19_SYMPTOM_SEARCH",
+      "COVID19_USA",
+      "CPTAC_PDC",
+      "CRYPTO",
+      "CYMBAL_INVESTMENTS",
+      "DB_IMDB",
+      "DEATH",
+      "DELIVERY_CENTER",
+      "DEPS_DEV_V1",
+      "DIMENSIONS_AI_COVID19",
+      "EBI_CHEMBL",
+      "ECLIPSE_MEGAMOVIE",
+      "ECOMMERCE",
+      "EDUCATION_BUSINESS",
+      "ELECTRONIC_SALES",
+      "ENTERTAINMENTAGENCY",
+      "EPA_HISTORICAL_AIR_QUALITY",
+      "ETHEREUM_BLOCKCHAIN",
+      "EU_SOCCER",
+      "E_COMMERCE",
+      "F1",
+      "FDA",
+      "FEC",
+      "FHIR_SYNTHEA",
+      "FINANCE__ECONOMICS",
+      "FIREBASE",
+      "GA360",
+      "GA4",
+      "GBIF",
+      "GENOMICS_CANNABIS",
+      "GEO_OPENSTREETMAP",
+      "GEO_OPENSTREETMAP_BOUNDARIES",
+      "GEO_OPENSTREETMAP_CENSUS_PLACES",
+      "GEO_OPENSTREETMAP_WORLDPOP",
+      "GHCN_D",
+      "GITHUB_REPOS",
+      "GITHUB_REPOS_DATE",
+      "GLOBAL_GOVERNMENT",
+      "GLOBAL_WEATHER__CLIMATE_DATA_FOR_BI",
+      "GNOMAD",
+      "GOOGLE_ADS",
+      "GOOGLE_DEI",
+      "GOOGLE_TRENDS",
+      "GOOG_BLOCKCHAIN",
+      "HACKER_NEWS",
+      "HTAN_1",
+      "HTAN_2",
+      "HUMAN_GENOME_VARIANTS",
+      "IDC",
+      "IMDB_MOVIES",
+      "IOWA_LIQUOR_SALES",
+      "IOWA_LIQUOR_SALES_PLUS",
+      "IPL",
+      "IRS_990",
+      "LIBRARIES_IO",
+      "LOG",
+      "LONDON",
+      "META_KAGGLE",
+      "MITELMAN",
+      "MLB",
+      "MODERN_DATA",
+      "MUSIC",
+      "NCAA_BASKETBALL",
+      "NCAA_INSIGHTS",
+      "NETHERLANDS_OPEN_MAP_DATA",
+      "NEW_YORK",
+      "NEW_YORK_CITIBIKE_1",
+      "NEW_YORK_GEO",
+      "NEW_YORK_GHCN",
+      "NEW_YORK_NOAA",
+      "NEW_YORK_PLUS",
+      "NHTSA_TRAFFIC_FATALITIES",
+      "NHTSA_TRAFFIC_FATALITIES_PLUS",
+      "NOAA_DATA",
+      "NOAA_DATA_PLUS",
+      "NOAA_GLOBAL_FORECAST_SYSTEM",
+      "NOAA_GSOD",
+      "NOAA_PORTS",
+      "NORTHWIND",
+      "NPPES",
+      "OPENAQ",
+      "OPEN_IMAGES",
+      "OPEN_TARGETS_GENETICS_1",
+      "OPEN_TARGETS_GENETICS_2",
+      "OPEN_TARGETS_PLATFORM_1",
+      "OPEN_TARGETS_PLATFORM_2",
+      "ORACLE_SQL",
+      "PAGILA",
+      "PANCANCER_ATLAS_1",
+      "PANCANCER_ATLAS_2",
+      "PATENTS",
+      "PATENTSVIEW",
+      "PATENTS_GOOGLE",
+      "PATENTS_USPTO",
+      "PYPI",
+      "SAN_FRANCISCO",
+      "SAN_FRANCISCO_PLUS",
+      "SCHOOL_SCHEDULING",
+      "SDOH",
+      "SEC_QUARTERLY_FINANCIALS",
+      "SQLITE_SAKILA",
+      "STACKING",
+      "STACKOVERFLOW",
+      "STACKOVERFLOW_PLUS",
+      "SUNROOF_SOLAR",
+      "TARGETOME_REACTOME",
+      "TCGA",
+      "TCGA_BIOCLIN_V0",
+      "TCGA_HG19_DATA_V0",
+      "TCGA_HG38_DATA_V0",
+      "TCGA_MITELMAN",
+      "THELOOK_ECOMMERCE",
+      "THE_MET",
+      "USA_NAMES",
+      "USDA_NASS_AGRICULTURE",
+      "USFS_FIA",
+      "US_ADDRESSES__POI",
+      "US_REAL_ESTATE",
+      "WEATHER__ENVIRONMENT",
+      "WIDE_WORLD_IMPORTERS",
+      "WORD_VECTORS_US",
+      "WORLD_BANK",
+      "WWE",
+      "YES_ENERGY__SAMPLE_DATA",
+      "_1000_GENOMES"
+    ],
+    "chosen_db": "_1000_GENOMES",
+    "high_level_plan": {
+      "task_type": "aggregation",
+      "hint_tables": [
+        "PEDIGREE",
+        "SAMPLE_INFO",
+        "VARIANTS"
+      ]
+    }
+  },
+  "schema_state": {
+    "table_list": [
+      "PEDIGREE",
+      "SAMPLE_INFO",
+      "VARIANTS"
+    ],
+    "linked_schema": {
+      "SAMPLE_INFO": {
+        "columns": [
+          {
+            "name": "X_Targets_Covered_to_20x_or_greater",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.917355",
+              "0.937257"
+            ]
+          },
+          {
+            "name": "LC_Non_Duplicated_Aligned_Coverage",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "10.17",
+              "6.87"
+            ]
+          },
+          {
+            "name": "Has_Sequence_from_Blood_in_Index",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "In_Phase1_Integrated_Variant_Set",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "In_Final_Phase_Variant_Calling",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "True",
+              "True"
+            ]
+          },
+          {
+            "name": "Super_Population_Description",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "African",
+              "African"
+            ]
+          },
+          {
+            "name": "Has_phase1_chrY_Deletions",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "Main_project_LC_platform",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "ILLUMINA",
+              "ILLUMINA"
+            ]
+          },
+          {
+            "name": "Unexpected_Parent_Child",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Main_Project_E_Platform",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "ILLUMINA",
+              "ILLUMINA"
+            ]
+          },
+          {
+            "name": "Main_project_LC_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "BI",
+              "ILLUMINA"
+            ]
+          },
+          {
+            "name": "Has_Exome_LOF_Genotypes",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "DNA_Source_from_Coriell",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "LCL",
+              "LCL"
+            ]
+          },
+          {
+            "name": "In_Exon_Targetted_Pilot",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "In_High_Coverage_Pilot",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "Population_Description",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "Esan in Nigeria",
+              "Esan in Nigeria"
+            ]
+          },
+          {
+            "name": "VerifyBam_LC_Omni_Free",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.00263",
+              "0.00018"
+            ]
+          },
+          {
+            "name": "Main_Project_E_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "BI",
+              "BGI"
+            ]
+          },
+          {
+            "name": "Has_Sequence_in_Phase1",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "VerifyBam_LC_Affy_Chip",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.00391",
+              "0.00148"
+            ]
+          },
+          {
+            "name": "VerifyBam_LC_Affy_Free",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.0038",
+              "0.00101"
+            ]
+          },
+          {
+            "name": "Has_Affy_6_0_Genotypes",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "True",
+              "True"
+            ]
+          },
+          {
+            "name": "VerifyBam_LC_Omni_Chip",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "In_Low_Coverage_Pilot",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "VerifyBam_E_Omni_Chip",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "VerifyBam_E_Omni_Free",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.00487",
+              "0.00208"
+            ]
+          },
+          {
+            "name": "VerifyBam_E_Affy_Chip",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.00543",
+              "0.00262"
+            ]
+          },
+          {
+            "name": "Has_phase1_chrMT_SNPs",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "VerifyBam_E_Affy_Free",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.00541",
+              "0.00257"
+            ]
+          },
+          {
+            "name": "Has_Phase1_chrY_SNPS",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "Unknown_Second_Order",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Total_Exome_Sequence",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "7576615180.0",
+              "11664276400.0"
+            ]
+          },
+          {
+            "name": "Has_Axiom_Genotypes",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "HC_Pilot_Platforms",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "LC_Pilot_Platforms",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Has_Omni_Genotypes",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "None",
+              "None"
+            ]
+          },
+          {
+            "name": "ET_Pilot_Platforms",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Phase1_LC_Platform",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Total_LC_Sequence",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "32595580924.0",
+              "19321870100.0"
+            ]
+          },
+          {
+            "name": "Phase1_E_Platform",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Phase1_LC_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "ET_Pilot_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Super_Population",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "AFR",
+              "AFR"
+            ]
+          },
+          {
+            "name": "LC_Pilot_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Phase1_E_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "HC_Pilot_Centers",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "LC_Indel_Ratio",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "1.3",
+              "0.82"
+            ]
+          },
+          {
+            "name": "Non_Paternity",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Half_Siblings",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "E_Indel_Ratio",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "1.09",
+              "0.85"
+            ]
+          },
+          {
+            "name": "LC_Passed_QC",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "True",
+              "True"
+            ]
+          },
+          {
+            "name": "Grandparents",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "EBV_Coverage",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "92.29",
+              "145.22"
+            ]
+          },
+          {
+            "name": "Relationship",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "mother",
+              "father"
+            ]
+          },
+          {
+            "name": "Third_Order",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "E_Passed_QC",
+            "type": "BOOLEAN",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "True",
+              "True"
+            ]
+          },
+          {
+            "name": "Population",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "ESN",
+              "ESN"
+            ]
+          },
+          {
+            "name": "Family_ID",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "NG23",
+              "NG11"
+            ]
+          },
+          {
+            "name": "Avuncular",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Siblings",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "",
+              ""
+            ]
+          },
+          {
+            "name": "Gender",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "female",
+              "male"
+            ]
+          },
+          {
+            "name": "Sample",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "HG02974",
+              "HG02938"
+            ]
+          }
+        ]
+      },
+      "VARIANTS": {
+        "columns": [
+          {
+            "name": "alternate_bases",
+            "type": "VARIANT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "[\n  \"C\"\n]",
+              "[\n  \"A\"\n]"
+            ]
+          },
+          {
+            "name": "reference_bases",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "T",
+              "T"
+            ]
+          },
+          {
+            "name": "reference_name",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "14",
+              "7"
+            ]
+          },
+          {
+            "name": "SNPSOURCE",
+            "type": "VARIANT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "[\n  \"LOWCOV\"\n]",
+              "[\n  \"LOWCOV\"\n]"
+            ]
+          },
+          {
+            "name": "AVGPOST",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0.9997",
+              "0.9992"
+            ]
+          },
+          {
+            "name": "quality",
+            "type": "FLOAT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "100.0",
+              "100.0"
+            ]
+          }
+        ]
+      },
+      "PEDIGREE": {
+        "columns": [
+          {
+            "name": "Other_Comments",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "name": "Individual_ID",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "HG01960",
+              "HG02559"
+            ]
+          },
+          {
+            "name": "Second_Order",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "name": "Relationship",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "child",
+              "child"
+            ]
+          },
+          {
+            "name": "Third_Order",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "name": "Maternal_ID",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "HG01989",
+              "HG02558"
+            ]
+          },
+          {
+            "name": "Paternal_ID",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "HG01988",
+              "HG02557"
+            ]
+          },
+          {
+            "name": "Population",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "ACB",
+              "ACB"
+            ]
+          },
+          {
+            "name": "Family_ID",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "BB11",
+              "BB68"
+            ]
+          },
+          {
+            "name": "Phenotype",
+            "type": "NUMBER",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "name": "Siblings",
+            "type": "TEXT",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "name": "Gender",
+            "type": "NUMBER",
+            "role": "col",
+            "description": "",
+            "sample_values": [
+              "2",
+              "2"
+            ]
+          }
+        ]
+      }
+    },
+    "linking_trace": [
+      {
+        "step": 0,
+        "llm_actions": [
+          {
+            "type": "stop_action"
+          }
+        ],
+        "observations": [
+          {
+            "action": "stop_action"
+          },
+          {
+            "warning": "no_feedback_action",
+            "detail": "Add retrieve_schema/explore_schema/verify_schema"
+          }
+        ],
+        "forced_stop": false
+      }
+    ]
+  },
+  "retrieval_state": {},
+  "sql_generation_state": {
+    "candidates": [
+      "SELECT 1;"
+    ]
+  },
+  "execution_state": {
+    "probes": [
+      {
+        "sql": "SELECT 1;",
+        "status": "error",
+        "error_type": "unsupported",
+        "error_message": "unsupported SQL pattern",
+        "row_count": 0,
+        "sample_rows": []
+      }
+    ],
+    "sample_rows": []
+  },
+  "final_decision": {
+    "sql": null,
+    "status": "failed",
+    "reason": "no successful candidate"
+  },
+  "metrics": {
+    "token_usage": {},
+    "latency_ms": {},
+    "timestamps": {
+      "start": 1765522079.993538,
+      "end": 1765522079.9943323
+    }
+  }
+}
